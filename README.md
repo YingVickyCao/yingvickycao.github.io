@@ -18,7 +18,7 @@ gradle-6.5-bin.zip
 
 | Book                                               | Current Page | Total page | TO DO       |
 | -------------------------------------------------- | ------------ | ---------- | ----------- |
-| Programming in Objective-C 6th Edition(中文版).pdf | 347          | 505        | 55 +30 = 88 |
+| Programming in Objective-C 6th Edition(中文版).pdf | 363          | 505        | 55 +30 = 88 |
 
 ## Web Resource
 
