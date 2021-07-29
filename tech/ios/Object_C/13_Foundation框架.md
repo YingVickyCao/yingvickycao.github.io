@@ -2,28 +2,28 @@
 
 - Foundation 文档
 
-(1) Developer Document  
-(2) 在 XCode 编辑文件时，当光标定位于代码上，按 Option 键并单击，调出概要面板。  
-(3) Online 文档  
-https://developer.apple.com/documentation
+  (1) Developer Document  
+  (2) 在 XCode 编辑文件时，当光标定位于代码上，按 Option 键并单击，调出概要面板。  
+  (3) Online 文档  
+  https://developer.apple.com/documentation
 
 - 头文件
 
-Foundation 框架包含大量的类、方法和函数。在 OS X 下，大约有 125 个可用的头文件，通过下面的语句简单进行导入。
+  Foundation 框架包含大量的类、方法和函数。在 OS X 下，大约有 125 个可用的头文件，通过下面的语句简单进行导入。
 
-```c
-// Foundation.h 导入了Foundation所有的头文件。
-#import <Foundation/Foundation.h>
-```
+  ```c
+  // Foundation.h 导入了Foundation所有的头文件。
+  #import <Foundation/Foundation.h>
+  ```
 
-TBD:  
-(1) 使用这条语句会明显增加程序的编译时间。然后，使用预编译的头文件可以避免额外的时间开销。  
-预编译的头文件是编译器预先处理过的文件。通常所有 XCode 项目都会受益于预编译的头文件。  
-(2) XCode5 中，"模块"的新功能能够帮助加速编译，以及帮助避免应用程序中使用不同的库出现的命名冲突。
+  TBD:  
+  (1) 使用这条语句会明显增加程序的编译时间。然后，使用预编译的头文件可以避免额外的时间开销。  
+  预编译的头文件是编译器预先处理过的文件。通常所有 XCode 项目都会受益于预编译的头文件。  
+  (2) XCode5 中，"模块"的新功能能够帮助加速编译，以及帮助避免应用程序中使用不同的库出现的命名冲突。
 
- - Foundation集合只能存储对象，不能存储像int等基本数据类型。
- Foundation集合时，使用NSNumber对象数组，而不是int数组。
- - Foundation集合不能直接存储结构。可以用NSValue包装结构，然后再存储在集合中。
+- Foundation 集合只能存储对象，不能存储像 int 等基本数据类型。  
+  Foundation 集合时，使用 NSNumber 对象数组，而不是 int 数组。
+- Foundation 集合不能直接存储结构。可以用 NSValue 包装结构，然后再存储在集合中。
 
 # 1 数字
 
@@ -127,6 +127,7 @@ NSMutableString 是 NSString 的子类
 ![oc_NSMutableString](https://yingvickycao.github.io/img/ios/oc_NSMutableString.jpg)
 
 # 3 数组
+
 `AddressBook.m`  
 `_13_3_array_main_4_AddressBook.m`  
 ![oc_NSArray_NSMutableArray](https://yingvickycao.github.io/img/ios/oc_NSArray_NSMutableArray.jpg)
@@ -134,7 +135,7 @@ NSMutableString 是 NSString 的子类
 ## `@property(copy,nonatomic, strong)`
 
 `AddressCard.m`  
-`_13_3_array_main_4_AddressCard2.m`  
+`_13_3_array_main_4_AddressCard2.m`
 
 - `copy` vs `assign`  
   assign ：属性的默认关键字。生成的方法不会生成副本，仅仅进行赋值。  
@@ -159,6 +160,7 @@ self.email = theEmail;
 ```
 
 ## 遍历数组
+
 ```c
 // 遍历数组：快速遍历
 - (void)list{
@@ -177,20 +179,23 @@ self.email = theEmail;
 
 ### 性能 : ForLoop vs For-in vs enumerateObjectsUsingBlock
 
-`_13_3_array_main_4_loop.m`  
+`_13_3_array_main_4_loop.m`
 
 - 遍历一个数组的时候使用 For-in 最快
 - 对于数组，通过 Value 找出 Index，enumerateObjectsWithOptions 最快。
-## removeObjectIdenticalTo vs removeObject  
-- removeObjectIdenticalTo : 按内存地址。内存地址相同，则视为同一个对象，会删除  
-- removeObject ： 通过isEqual比较内容。只有内容完全相同，才删除。  
+
+## removeObjectIdenticalTo vs removeObject
+
+- removeObjectIdenticalTo : 按内存地址。内存地址相同，则视为同一个对象，会删除
+- removeObject ： 通过 isEqual 比较内容。只有内容完全相同，才删除。
 
 ## 数组排序
-- 使用selector排序名：需要为比较的对象添加比较方法 
+
+- 使用 selector 排序名：需要为比较的对象添加比较方法
 
 ```c
 // AddressBook.m
-[book sortUsingSelector:@selector(compareNames:)]; 
+[book sortUsingSelector:@selector(compareNames:)];
 
 // AddressCard_2.m
 - (NSComparisonResult)compareNames:(id)element{
@@ -199,28 +204,32 @@ self.email = theEmail;
     // 按降序排序
     return [name compare:[element name]] == kCFCompareLessThan;
 }
-``` 
-- 使用区块排序NSMutableArray：不需要为比较的对象添加比较方法  
+```
+
+- 使用区块排序 NSMutableArray：不需要为比较的对象添加比较方法
 
 ```c
 // AddressBook.m
 [book sortUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
-        return [[obj1 name] compare: [obj2 name]];
-    }];
+      return [[obj1 name] compare: [obj2 name]];
+  }];
 ```
 
 ## NSValue
-`_13_3_Array_main_4_NSValue.m`   
-用NSValue类将结构转化为对象，并可以将它存储在结合中。
+
+`_13_3_Array_main_4_NSValue.m`  
+用 NSValue 类将结构转化为对象，并可以将它存储在结合中。
 
 包装(wraping)：将结构转化为对象。
 展开(unwraping)：从对象中解出基本类型。
 
 ![oc_NSValue](https://yingvickycao.github.io/img/ios/oc_NSValue.jpg)
+
 # 3 集合
 
 # 5 字典
 
 # 性能：For-in vs enumerateObjectsUsingBlock
-`_13_5_dictionary_main_4_loop.m`   
+
+`_13_5_dictionary_main_4_loop.m`  
 遍历字典，enumerateKeysAndObjectsUsingBlock 速度更快，也更优雅。
