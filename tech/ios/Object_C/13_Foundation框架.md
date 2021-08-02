@@ -225,11 +225,23 @@ self.email = theEmail;
 
 ![oc_NSValue](https://yingvickycao.github.io/img/ios/oc_NSValue.jpg)
 
-# 3 集合
+# 4 字典（Dictionary）
 
-# 5 字典
+- 类似与 Java 的 map
+- 字典是由键-对象组成的数据集合。
+- 字典是无序的。从字典中取出的键也是无序的。
+- 如何以字母顺序显示词典中的内容？先取出词典中的所有键并排序，然后按照排好的键从字典中取出所有的值
+- key 不能是 nil
+- key 可以相同，但 value 会覆盖前面设置的值。
+- key 是单值，通常是字符串，也可以是其他对象类型。
+- value 可以是任何对象类型，但不能是 nil。  
+  测试：value 虽然可以是 nil，但是根本检索不出来，就像没有存一样。
+
+![os_dictionary](https://yingvickycao.github.io/img/ios/os_dictionary.jpg)
 
 # 性能：For-in vs enumerateObjectsUsingBlock
 
 `_13_5_dictionary_main_4_loop.m`  
 遍历字典，enumerateKeysAndObjectsUsingBlock 速度更快，也更优雅。
+
+# 5 集合
