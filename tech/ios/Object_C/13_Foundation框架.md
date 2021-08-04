@@ -215,7 +215,7 @@ self.email = theEmail;
   }];
 ```
 
-## NSValue
+# NSValue
 
 `_13_3_Array_main_4_NSValue.m`  
 用 NSValue 类将结构转化为对象，并可以将它存储在结合中。
@@ -245,3 +245,27 @@ self.email = theEmail;
 遍历字典，enumerateKeysAndObjectsUsingBlock 速度更快，也更优雅。
 
 # 5 集合
+
+![oc_NSIndexSet](https://yingvickycao.github.io/img/ios/oc_NSIndexSet.jpg)
+
+## NSSet、NSMutableSet
+
+- 通过创建 Printing 类别，将打印方法添加到 NSSet
+- NSMutableSet 是 NSSet 的子类。
+- 创建 NSSet 时，以 nil 结尾。
+- 可以获得并集合或交集。
+
+## NSCountedSet（计数集合）
+
+用途：同一个对象可以出现多次，没有在集合中添加多个这个对象，而是维护一个次数计数。随着增加和删除对象，该次数计数变大或变小。
+
+- 应用场景：单词计数器。
+
+## NSIndexSet、NSMutableIndexSet （索引集合）
+
+用途：存储有序的索引
+
+- indexesOfObjectsPassingTest / indexesOfObjectsPassingTest：`AddressBook.m` - lookup2，lookupMatches2，lookupMatches3  
+  区块应用在集合的每个元素。传递数组的元素、索引号和一个指向 BOOL 变量的指针给区块。使用区块中的代码测试元素是否满足条件，则返回 YES，不满足则返回 NO。  
+  即使方法返回 YES，仍然会继续执行，知道所有的元素被处理过。可以设置 BOOL 指针引用的值为 YES 终止处理。
+- 数值必须唯一。若存储已经包含的 index，add 操作会覆盖已存储的值，等于没 add。
