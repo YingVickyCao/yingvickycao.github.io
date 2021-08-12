@@ -52,7 +52,7 @@ gradle clean :app:testDebug :androidLib:testDebug :javalib:test
 
 ```
 android studio 4.2.2,need JDK 1.8
-androidx
+androidx code
 gradle 6.9
 android gradle plugin 4.0.2
 compole SDK 30

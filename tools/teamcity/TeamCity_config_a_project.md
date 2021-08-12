@@ -63,7 +63,7 @@ pwd
 npm config list
 ```
 
-# 5 Build Step- (2 of 4): Gradle
+# 5 Build Step - (2 of 4): Gradle
 
 ![TeamCity_Build_Steps_Step_Gradle.jpg](https://yingvickycao.github.io/img/tools/teamcity/TeamCity_Build_Steps_Step_Gradle.jpg)
 
@@ -72,7 +72,7 @@ npm config list
 - build.gradle
 - JDK
 
-# Build Step (4 of 4): SonarQube Analysis
+# 6 Build Step - (4 of 4): SonarQube Analysis
 
 ![TeamCity_Build_Steps_Step_Sonar_QubeAnalysis.jpg](https://yingvickycao.github.io/img/tools/teamcity/TeamCity_Build_Steps_Step_Sonar_QubeAnalysis.jpg)
 
@@ -229,7 +229,7 @@ https://docs.sonarqube.org/7.9/project-administration/narrowing-the-focus/
 
 - `sonar.scm.*` is optional
 
-# 6 Triggers（触发器）
+# 7 Triggers（触发器）
 
 ## VCS Trigger：自动构建触发行为。当有代码提交的时候，TeamCity 检查到新版本之后自动构建，
 
@@ -248,7 +248,7 @@ https://docs.sonarqube.org/7.9/project-administration/narrowing-the-focus/
 
 ![TeamCity_Triggers.jpg](https://yingvickycao.github.io/img/tools/teamcity/TeamCity_Triggers.jpg)
 
-# 7 Parameters
+# 8 Parameters
 
 ## Configuration Parameters
 
