@@ -33,21 +33,49 @@
 | TeamCity - Build Steps : SonarQube Runner | JDK 11 x64                                                           |
 | sonarqube-7.9                             | JDK 11 <br/> Java+Kotlin <br/> sonar.coverage.jacoco.xmlReportPaths` |
 
-# Step 1: Prepare Android Code
+# Step
+
+https://github.com/YingVickyCao/EnableCodeCoverage  
+https://gitee.com/YingVickyCao/EnableCodeCoverage
+
+gradle clean :app:testDebug :androidLib:testDebug :javalib:test
+
+/Users/hades/Library/TeamCity/bin/runAll.sh start
+/Users/hades/Library/TeamCity/bin/runAll.sh stop
+
+/Users/hades/Library/sonarqube/bin/macosx-universal-64/sonar.sh start
+/Users/hades/Library/sonarqube/bin/macosx-universal-64/sonar.sh stop
+
+## 配置 when test on 2021/8/12, TeamCity 2021.1.2 (build 92869)
+
+android studio 4.2.2,need JDK 1.8
+androidx
+gradle 6.9
+android gradle plugin 4.0.2
+compole SDK 30
+target 30
+minSDK 23
+build tools:30.0.3
+
+Java 1.8
+SonarQube server - Community EditionVersion 7.9.6 (build 41879), need JDK 11
+TeamCity 2021.1.2 (build 92869),need JDK 1.8
+
+## Step 1: Prepare Android Code
 
 - [Jacoco](/doc/tools/jacoco/Jacoco.md)
 
-# Step 2: SonarQube
+## Step 2: SonarQube
 
 - [SonarQube](/doc/tools/sonarqube/SonarQube_Config.md)
 
-# Step 3: TeamCity
+## Step 3: TeamCity
 
 - [TeamCity - MarkDown](/doc/tools/teamcity/TeamCity.md)
 
 - [TeamCity - html](https://yingvickycao.github.io/doc/tools/teamcity/TeamCity.html)
 
-# Step4 TeamCity Run
+## Step4 TeamCity Run
 
 点击 run，开始手动构建该项目
 

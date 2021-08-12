@@ -2,7 +2,7 @@
 
 # 1 General Settings
 
-![TeamCity_GeneralSettings](https://yingvickycao.github.io/img/TeamCity_GeneralSettings.jpg)
+![TeamCity_GeneralSettings](https://yingvickycao.github.io/img/tools/teamcity/TeamCity_GeneralSettings.jpg)
 
 - Build number format:  
   `%VersionNumber%`
@@ -11,18 +11,18 @@
 
 # 2 Version Control Settings
 
-![TeamCity_Version_Control_Settings.jpg](https://yingvickycao.github.io/img/TeamCity_Version_Control_Settings.jpg)
+![TeamCity_Version_Control_Settings.jpg](https://yingvickycao.github.io/img/tools/teamcity/TeamCity_Version_Control_Settings.jpg)
 
 - Branch Filter
   `+:*`
 
 ## VCS Roots - Edit VCS Root
 
-![TeamCity_Version_Control_Settings_Edit_VCS_Root_1.jpg](https://yingvickycao.github.io/img/TeamCity_Version_Control_Settings_Edit_VCS_Root_1.jpg)
+![TeamCity_Version_Control_Settings_Edit_VCS_Root_1.jpg](https://yingvickycao.github.io/img/tools/teamcity/TeamCity_Version_Control_Settings_Edit_VCS_Root_1.jpg)
 
-![TeamCity_Version_Control_Settings_Edit_VCS_Root_2.jpg](https://yingvickycao.github.io/img/TeamCity_Version_Control_Settings_Edit_VCS_Root_2.jpg)
+![TeamCity_Version_Control_Settings_Edit_VCS_Root_2.jpg](https://yingvickycao.github.io/img/tools/teamcity/TeamCity_Version_Control_Settings_Edit_VCS_Root_2.jpg)
 
-![TeamCity_Version_Control_Settings_Edit_VCS_Root.jpg](https://yingvickycao.github.io/img/TeamCity_Version_Control_Settings_Edit_VCS_Root_3.jpg)
+![TeamCity_Version_Control_Settings_Edit_VCS_Root.jpg](https://yingvickycao.github.io/img/tools/teamcity/TeamCity_Version_Control_Settings_Edit_VCS_Root_3.jpg)
 
 - Fetch URL:  
   `https://github.com/YingVickyCao/EnableCodeCoverage.git`
@@ -35,11 +35,11 @@
 
 # 3 Build Steps
 
-![TeamCity_Build_Steps.jpg](https://yingvickycao.github.io/img/TeamCity_Build_Steps.jpg)
+![TeamCity_Build_Steps.jpg](https://yingvickycao.github.io/img/tools/teamcity/TeamCity_Build_Steps.jpg)
 
 # 4 Build Step (1 of 4): Android SDK update
 
-![img/TeamCity_Build_Steps_4_1_android_sdk_update.jpg.jpg](https://yingvickycao.github.io/img/TeamCity_Build_Steps_4_1_android_sdk_update.jpg)
+![img/TeamCity_Build_Steps_4_1_android_sdk_update.jpg.jpg](https://yingvickycao.github.io/img/tools/teamcity/TeamCity_Build_Steps_4_1_android_sdk_update.jpg)
 
 ```
 # android update sdk --use-sdk-wrapper --no-ui --all --force  --proxy-host mirrors.neusoft.edu.cn --proxy-port 80
@@ -65,7 +65,7 @@ npm config list
 
 # 5 Build Step- (2 of 4): Gradle
 
-![TeamCity_Build_Steps_Step_Gradle.jpg](https://yingvickycao.github.io/img/TeamCity_Build_Steps_Step_Gradle.jpg)
+![TeamCity_Build_Steps_Step_Gradle.jpg](https://yingvickycao.github.io/img/tools/teamcity/TeamCity_Build_Steps_Step_Gradle.jpg)
 
 - `%gradleTasks%`
 
@@ -74,7 +74,7 @@ npm config list
 
 # Build Step (4 of 4): SonarQube Analysis
 
-![TeamCity_Build_Steps_Step_Sonar_QubeAnalysis.jpg](https://yingvickycao.github.io/img/TeamCity_Build_Steps_Step_Sonar_QubeAnalysis.jpg)
+![TeamCity_Build_Steps_Step_Sonar_QubeAnalysis.jpg](https://yingvickycao.github.io/img/tools/teamcity/TeamCity_Build_Steps_Step_Sonar_QubeAnalysis.jpg)
 
 - Runner Type：SonarQube Runner  
   Teamcity 如果默认没有 SonarQube Runner， 需要下载。
@@ -223,9 +223,9 @@ https://docs.sonarqube.org/7.9/project-administration/narrowing-the-focus/
 **/*Module.*,**/*Module4Dagger2.*
 ```
 
-![TeamCity_Build_Steps_Step_Sonar_QubeAnalysis_filter_code_coverage_4_dagger_before](https://yingvickycao.github.io/img/TeamCity_Build_Steps_Step_Sonar_QubeAnalysis_filter_code_coverage_4_dagger_before.jpg)
+![TeamCity_Build_Steps_Step_Sonar_QubeAnalysis_filter_code_coverage_4_dagger_before](https://yingvickycao.github.io/img/tools/teamcity/TeamCity_Build_Steps_Step_Sonar_QubeAnalysis_filter_code_coverage_4_dagger_before.jpg)
 
-![TeamCity_Build_Steps_Step_Sonar_QubeAnalysis_filter_code_coverage_4_dagger_after](https://yingvickycao.github.io/img/TeamCity_Build_Steps_Step_Sonar_QubeAnalysis_filter_code_coverage_4_dagger_after.jpg)
+![TeamCity_Build_Steps_Step_Sonar_QubeAnalysis_filter_code_coverage_4_dagger_after](https://yingvickycao.github.io/img/tools/teamcity/TeamCity_Build_Steps_Step_Sonar_QubeAnalysis_filter_code_coverage_4_dagger_after.jpg)
 
 - `sonar.scm.*` is optional
 
@@ -244,9 +244,9 @@ https://docs.sonarqube.org/7.9/project-administration/narrowing-the-focus/
 
 ## Schedule Trigger：定时构建
 
-![TeamCity_Triggers_Add_New_Triger.jpg](https://yingvickycao.github.io/img/TeamCity_Triggers_Add_New_Triger.jpg)
+![TeamCity_Triggers_Add_New_Triger.jpg](https://yingvickycao.github.io/img/tools/teamcity/TeamCity_Triggers_Add_New_Triger.jpg)
 
-![TeamCity_Triggers.jpg](https://yingvickycao.github.io/img/TeamCity_Triggers.jpg)
+![TeamCity_Triggers.jpg](https://yingvickycao.github.io/img/tools/teamcity/TeamCity_Triggers.jpg)
 
 # 7 Parameters
 
@@ -285,11 +285,11 @@ https://docs.sonarqube.org/7.9/project-administration/narrowing-the-focus/
 
 ## ERROR : `Please supply original non-instrumented`
 
-![TeamCity_Build_Steps_Step_Gradle_Code_Coverage_1.jpg](https://yingvickycao.github.io/img/TeamCity_Build_Steps_Step_Gradle_Code_Coverage_2.jpg)
+![TeamCity_Build_Steps_Step_Gradle_Code_Coverage_1.jpg](https://yingvickycao.github.io/img/tools/teamcity/TeamCity_Build_Steps_Step_Gradle_Code_Coverage_2.jpg)
 
 Fix:  
 去掉 Coverage 设置  
-![TeamCity_Build_Steps_Step_Gradle_Code_Coverage_1.jpg](https://yingvickycao.github.io/img/TeamCity_Build_Steps_Step_Gradle_Code_Coverage_1.jpg)
+![TeamCity_Build_Steps_Step_Gradle_Code_Coverage_1.jpg](https://yingvickycao.github.io/img/tools/teamcity/TeamCity_Build_Steps_Step_Gradle_Code_Coverage_1.jpg)
 
 ## ERROR ： `It is not located in module basedir`
 
@@ -420,15 +420,18 @@ See above。
 ## Q : [TeamCity 2021.1.2 (build 92869)] No enabled compatible agents for this build configuration.Please register a build agent or tweak build configuration requirements.
 
 A :  
-先查看 defaut agent 不能用的原因，一般是 Parameters 配置有问题，可以根据错误提示来修复。
+先查看 defaut agent 不能用的原因，一般是 Parameters 配置有问题，可以根据错误提示来修复。  
 如果 fix 完 Parameters 后，还不能使用，只能重新安装一个 Agent。
 
 How to install agent？  
 Tab Agents ->Install Build Agents -> Full zip file distribution,  
-放入=> /Users/hades/Library/TeamCity/buildAgentFull，go to etc,重命名 buildAgent.dist.properties -> buildAgent.properties  
-/Users/hades/Library/TeamCity/bin/runAll.sh stop  
-/Users/hades/Library/TeamCity/buildAgent/bin/agent.sh start  
+放入=> /Users/hades/Library/TeamCity/buildAgentFull，go to etc,重命名 buildAgent.dist.properties -> buildAgent.properties.
+
+```
+/Users/hades/Library/TeamCity/bin/runAll.sh stop
+/Users/hades/Library/TeamCity/buildAgent/bin/agent.sh start
 /Users/hades/Library/TeamCity/bin/runAll.sh start
+```
 
 ## Q: [TeamCity 2021.1.2 (build 92869)] project code download fail
 
@@ -454,20 +457,6 @@ java.lang.IllegalStateException: No files nor directories matching 'app/build/in
 Process exited with code 1 (Step: SonarQube Analysis (SonarQube Runner))
 Step SonarQube Analysis (SonarQube Runner) failed
 ```
-
-配置：
-android studio 4.2.2,need JDK 1.8
-androidx
-gradle 6.9
-android gradle plugin 4.0.2
-compole SDK 30
-target 30
-minSDK 23
-build tools:30.0.3
-
-Java 1.8
-SonarQube server - Community EditionVersion 7.9.6 (build 41879), need JDK 11
-TeamCity 2021.1.2 (build 92869),need JDK 1.8
 
 ```
 // Android code
@@ -498,17 +487,57 @@ androidLib/build/tmp/kotlin-classes/debug/com/github/yingvickycao/androidlib(Onl
 androidLib/build/tmp/kotlin-classes/debugUnitTest/com/github/yingvickycao/androidlib (Only Kotlin)
 ```
 
-## Q : `java.lang.IllegalStateException: No files nor directories matching 'app/build/intermediates/jacoco_instrumented_classes/debug/'`
+## Q : [TeamCity 2021.1.2 (build 92869)] `java.lang.IllegalStateException: No files nor directories matching 'app/build/intermediates/jacoco_instrumented_classes/debug/'`
 
 A :
 
-```
-android studio 4.2.2,need JDK 1.8
-androidx code
-gradle 6.9
+androidLib/build/intermediates/runtime_library_classes_dir/debug/com/github/yingvickycao/androidlib(Java + Kotlin,命令行/Teamcity build 没有，AS Click run 有)
+
+## Q : [TeamCity 2021.1.2 (build 92869)] Cannot set the value of read-only property 'classDirectories'
+
+A :
+https://docs.gradle.org/current/userguide/upgrading_version_5.html#other_deprecated_behaviors_and_apis  
+classDirectories - use getClassDirectories().setFrom() instead.
+
+```grovy
+classDirectories = files([classDirectories_java, classDirectories_kotlin])
+=>
+getClassDirectories().setFrom(files([classDirectories_java, classDirectories_kotlin]))
 ```
 
-androidLib/build/intermediates/runtime_library_classes_dir/debug/com/github/yingvickycao/androidlib(Java + Kotlin,命令行/Teamcity build 没有，AS Click run 有)
+## Q : android library module (com.android.library) code coverage is always 0%
+
+```
+// Android Gradle Plugin 4.2.2 teamcity build log: Caused by: java.lang.IllegalStateException: Cannot process instrumented class .Please supply original non-instrumented classes.
+
+[17:10:01] : [Step 2/3] com.github.yingvickycao.androidlib.B1Test (1s)
+[17:10:02] : [com.github.yingvickycao.androidlib.B1Test] com.github.yingvickycao.androidlib.B1Test.getB1Value
+[17:10:03] : [com.github.yingvickycao.androidlib.B1Test.getB1Value] [Test Error Output]
+java.lang.instrument.IllegalClassFormatException: Error while instrumenting com/github/yingvickycao/androidlib/B1.
+
+Caused by: java.io.IOException: Error while instrumenting com/github/yingvickycao/androidlib/B1.
+Caused by: java.lang.IllegalStateException: Cannot process instrumented class com/github/yingvickycao/androidlib/B1. Please supply original non-instrumented classes.
+
+[17:10:03] : [Step 2/3] com.github.yingvickycao.androidlib.B2Test
+[17:10:03] : [com.github.yingvickycao.androidlib.B2Test] com.github.yingvickycao.androidlib.B2Test.getB2Value
+[17:10:03] : [com.github.yingvickycao.androidlib.B2Test.getB2Value] [Test Error Output]
+java.lang.instrument.IllegalClassFormatException: Error while instrumenting com/github/yingvickycao/androidlib/B2.
+Caused by: java.io.IOException: Error while instrumenting com/github/yingvickycao/androidlib/B2.
+Caused by: java.lang.IllegalStateException: Cannot process instrumented class com/github/yingvickycao/androidlib/B2. Please supply original non-instrumented classes.
+
+Caused by: java.lang.IllegalStateException: Cannot process instrumented class . Please supply original non-instrumented classes.
+```
+
+A :
+
+Reason :  
+AGP 4.1+(Android Gradle Plugin) does it's own form of instrumentation to get the coverage which is undoubtedly incompatible with JaCoCo.  
+https://stackoverflow.com/questions/67299155/kotlin-jacoco-illegalclassformatexception-please-supply-original-non-instrume
+
+https://stackoverflow.com/questions/59378618/kotlin-jacoco-no-coverage-illegalclassformatexception-please-supply-orig
+
+Solution:  
+Android Gradle Plugin 4.2.2 -> 4.0.2
 
 # Refs:
 
@@ -530,7 +559,3 @@ androidLib/build/intermediates/runtime_library_classes_dir/debug/com/github/ying
 - Narrowing the Focus https://docs.sonarqube.org/7.9/project-administration/narrowing-the-focus/
 - https://www.jianshu.com/p/e384595d0b14
 - https://www.jianshu.com/p/778fd35fd494
-
-```
-
-```
