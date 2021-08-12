@@ -2,7 +2,7 @@
 
 - https://github.com/YingVickyCao/EnableCodeCoverage
 
-# TeanCity CI about versions
+# 1 TeanCity CI about versions
 
 | Item                            | Verson                               |
 | ------------------------------- | ------------------------------------ |
@@ -33,11 +33,12 @@
 | TeamCity - Build Steps : SonarQube Runner | JDK 11 x64                                                           |
 | sonarqube-7.9                             | JDK 11 <br/> Java+Kotlin <br/> sonar.coverage.jacoco.xmlReportPaths` |
 
-# Step
+# 2 Step
 
 https://github.com/YingVickyCao/EnableCodeCoverage  
 https://gitee.com/YingVickyCao/EnableCodeCoverage
 
+```
 gradle clean :app:testDebug :androidLib:testDebug :javalib:test
 
 /Users/hades/Library/TeamCity/bin/runAll.sh start
@@ -45,9 +46,11 @@ gradle clean :app:testDebug :androidLib:testDebug :javalib:test
 
 /Users/hades/Library/sonarqube/bin/macosx-universal-64/sonar.sh start
 /Users/hades/Library/sonarqube/bin/macosx-universal-64/sonar.sh stop
+```
 
 ## 配置 when test on 2021/8/12, TeamCity 2021.1.2 (build 92869)
 
+```
 android studio 4.2.2,need JDK 1.8
 androidx
 gradle 6.9
@@ -60,6 +63,7 @@ build tools:30.0.3
 Java 1.8
 SonarQube server - Community EditionVersion 7.9.6 (build 41879), need JDK 11
 TeamCity 2021.1.2 (build 92869),need JDK 1.8
+```
 
 ## Step 1: Prepare Android Code
 
@@ -79,7 +83,7 @@ TeamCity 2021.1.2 (build 92869),need JDK 1.8
 
 点击 run，开始手动构建该项目
 
-# Conclusion
+# 3 Conclusion
 
 - Read the official website information
 - Local Jacoco coverage report exported success, then try config TeamCity
