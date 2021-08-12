@@ -37,7 +37,7 @@
 
 ![TeamCity_Build_Steps.jpg](https://yingvickycao.github.io/img/TeamCity_Build_Steps.jpg)
 
-## Build Step (1 of 4): Android SDK update
+# 4 Build Step (1 of 4): Android SDK update
 
 ![img/TeamCity_Build_Steps_4_1_android_sdk_update.jpg.jpg](https://yingvickycao.github.io/img/TeamCity_Build_Steps_4_1_android_sdk_update.jpg)
 
@@ -63,7 +63,7 @@ pwd
 npm config list
 ```
 
-## Build Step (2 of 4): Gradle
+# 5 Build Step- (2 of 4): Gradle
 
 ![TeamCity_Build_Steps_Step_Gradle.jpg](https://yingvickycao.github.io/img/TeamCity_Build_Steps_Step_Gradle.jpg)
 
@@ -75,6 +75,25 @@ npm config list
 # Build Step (4 of 4): SonarQube Analysis
 
 ![TeamCity_Build_Steps_Step_Sonar_QubeAnalysis.jpg](https://yingvickycao.github.io/img/TeamCity_Build_Steps_Step_Sonar_QubeAnalysis.jpg)
+
+- Runner Type：SonarQube Runner  
+  Teamcity 如果默认没有 SonarQube Runner， 需要下载。
+
+![Teamcity_2020.1.3_install_SonarQube_Analysis_plugin_1](https://yingvickycao.github.io/img/tools/teamcity/Teamcity_2020.1.3_install_SonarQube_Analysis_plugin_1.jpg)
+
+![Teamcity_2020.1.3_install_SonarQube_Analysis_plugin_2](https://yingvickycao.github.io/img/tools/teamcity/Teamcity_2020.1.3_install_SonarQube_Analysis_plugin_2.jpg)
+
+![Teamcity_2020.1.3_install_SonarQube_Analysis_plugin_3](https://yingvickycao.github.io/img/tools/teamcity/Teamcity_2020.1.3_install_SonarQube_Analysis_plugin_3.jpg)
+
+![Teamcity_2020.1.3_install_SonarQube_Analysis_plugin_4](https://yingvickycao.github.io/img/tools/teamcity/Teamcity_2020.1.3_install_SonarQube_Analysis_plugin_4.jpg)
+
+![Teamcity_2020.1.3_install_SonarQube_Analysis_plugin_5](https://yingvickycao.github.io/img/tools/teamcity/Teamcity_2020.1.3_install_SonarQube_Analysis_plugin_5.jpg)
+
+Failed to download plugin from URL https://plugins.jetbrains.com/plugin/download?updateId=118904&build=92869&mode=professional&uuid=64f6f93f-7ef1-465b-a5dc-59c18fdf9696: Unable to connect to the plugins repository https://plugins.jetbrains.com. Check the network settings and try again later.
+
+下载失败了，手动下载 URL，然后使用“Upload plugin zip” 来安装。
+
+![Teamcity_2020.1.3_install_SonarQube_Analysis_plugin_6](https://yingvickycao.github.io/img/tools/teamcity/Teamcity_2020.1.3_install_SonarQube_Analysis_plugin_6.jpg)
 
 - Project name:  
   `%env.sonarProjectName%`
@@ -210,7 +229,7 @@ https://docs.sonarqube.org/7.9/project-administration/narrowing-the-focus/
 
 - `sonar.scm.*` is optional
 
-# 4 Triggers（触发器）
+# 6 Triggers（触发器）
 
 ## VCS Trigger：自动构建触发行为。当有代码提交的时候，TeamCity 检查到新版本之后自动构建，
 
@@ -229,7 +248,7 @@ https://docs.sonarqube.org/7.9/project-administration/narrowing-the-focus/
 
 ![TeamCity_Triggers.jpg](https://yingvickycao.github.io/img/TeamCity_Triggers.jpg)
 
-# 5 Parameters
+# 7 Parameters
 
 ## Configuration Parameters
 
@@ -393,6 +412,104 @@ Fix:
 -Dsonar.jacoco.reportPaths
 ```
 
+## Q : [TeamCity 2021.1.2 (build 92869)] Can not find SonarQube Runnder
+
+A： User Adnistrator to downlaod SonarQube Runnder plugin ,then you can see it.
+See above。
+
+## Q : [TeamCity 2021.1.2 (build 92869)] No enabled compatible agents for this build configuration.Please register a build agent or tweak build configuration requirements.
+
+A :  
+先查看 defaut agent 不能用的原因，一般是 Parameters 配置有问题，可以根据错误提示来修复。
+如果 fix 完 Parameters 后，还不能使用，只能重新安装一个 Agent。
+
+How to install agent？  
+Tab Agents ->Install Build Agents -> Full zip file distribution,  
+放入=> /Users/hades/Library/TeamCity/buildAgentFull，go to etc,重命名 buildAgent.dist.properties -> buildAgent.properties  
+/Users/hades/Library/TeamCity/bin/runAll.sh stop  
+/Users/hades/Library/TeamCity/buildAgent/bin/agent.sh start  
+/Users/hades/Library/TeamCity/bin/runAll.sh start
+
+## Q: [TeamCity 2021.1.2 (build 92869)] project code download fail
+
+```
+Failed to collect changes, error: List remote refs failed: java.net.SocketTimeoutException: Read timed out, VCS root: "EnableCodeCoverage" {instance id=3, parent internal id=1, parent id=EnableCodeCoverage_EnableCodeCoverage, description: "https://github.com/YingVickyCao/EnableCodeCoverage.git#refs/heads/develop_androidx"}
+```
+
+A:  
+Version Control Setting -> VCS Root ->Edit ->Edit VCS Root
+
+Authentication method: Anonymous  
+=>  
+Authentication method: Password / access token  
+Username: the user name to access the clone the URL  
+Password / access token: the password to clone the URL
+
+## Q : [TeamCity 2021.1.2 (build 92869)]`No files nor directories matching 'app/build/intermediates/classes/debug/'`
+
+```
+ERROR: Invalid value for sonar.java.binaries
+ERROR: Error during SonarQube Scanner execution
+java.lang.IllegalStateException: No files nor directories matching 'app/build/intermediates/classes/debug/'
+Process exited with code 1 (Step: SonarQube Analysis (SonarQube Runner))
+Step SonarQube Analysis (SonarQube Runner) failed
+```
+
+配置：
+android studio 4.2.2,need JDK 1.8
+androidx
+gradle 6.9
+android gradle plugin 4.0.2
+compole SDK 30
+target 30
+minSDK 23
+build tools:30.0.3
+
+Java 1.8
+SonarQube server - Community EditionVersion 7.9.6 (build 41879), need JDK 11
+TeamCity 2021.1.2 (build 92869),need JDK 1.8
+
+```
+// Android code
+-Dsonar.java.binaries=app/build/intermediates/classes/debug/,javaLib/build/classes/java/,androidLib/build/intermediates/classes/debug/
+=>
+// Androidx code
+-Dsonar.java.binaries=app/build/intermediates/javac/debug/classes/,app/build/tmp/kotlin-classes/debug/,javaLib/build/classes/java/main/,javaLib/build/classes/kotlin/main/,androidLib/build/intermediates/javac/debug/classes/,androidLib/build/tmp/kotlin-classes/debug/
+```
+
+Dirs:
+
+```
+app/build/intermediates/javac/debug/classes/com/github/yingvickycao/enablecodecoverage (Only Java) => Use this
+app/build/intermediates/javac/debug/debugUnitTest/com/github/yingvickycao/enablecodecoverage (Only Java)
+app/build/intermediates/jacoco_instrumented_classes/debug/out/com/github/yingvickycao/enablecodecoverage (Java + Kotlin，命令行/Teamcity build 没有，AS Click run 有)
+app/build/tmp/kotlin-classes/debug/com/github/yingvickycao/enablecodecoverage (Only Kotlin) => Use this
+
+javaLib/build/classes/java/main/com/github/yingvickycao (Only Java) => Use this
+javaLib/build/classes/java/test/com/github/yingvickycao (Only Java)
+javaLib/build/classes/kotlin/main/com/github/yingvickycao/javalib (Only Kotlin) => Use this
+javaLib/build/classes/kotlin/test/com/github/yingvickycao/javalib (Only Kotlin)
+
+androidLib/build/intermediates/javac/debug/classes/com/github/yingvickycao/androidlib (Only Java) => Use this
+androidLib/build/intermediates/javac/debugUnitTest/classes/com/github/yingvickycao/androidlib (Only Java)
+androidLib/build/intermediates/jacoco_instrumented_classes/debug/out/com/github/yingvickycao/androidlib (Java + Kotlin) =>没有效果
+androidLib/build/intermediates/runtime_library_classes_dir/debug/com/github/yingvickycao/androidlib(Java + Kotlin,命令行/Teamcity build 没有，AS Click run 有)
+androidLib/build/tmp/kotlin-classes/debug/com/github/yingvickycao/androidlib(Only Kotlin) => Use this
+androidLib/build/tmp/kotlin-classes/debugUnitTest/com/github/yingvickycao/androidlib (Only Kotlin)
+```
+
+## Q : `java.lang.IllegalStateException: No files nor directories matching 'app/build/intermediates/jacoco_instrumented_classes/debug/'`
+
+A :
+
+```
+android studio 4.2.2,need JDK 1.8
+androidx code
+gradle 6.9
+```
+
+androidLib/build/intermediates/runtime_library_classes_dir/debug/com/github/yingvickycao/androidlib(Java + Kotlin,命令行/Teamcity build 没有，AS Click run 有)
+
 # Refs:
 
 - https://www.jianshu.com/p/b30ee02a6b87
@@ -413,3 +530,7 @@ Fix:
 - Narrowing the Focus https://docs.sonarqube.org/7.9/project-administration/narrowing-the-focus/
 - https://www.jianshu.com/p/e384595d0b14
 - https://www.jianshu.com/p/778fd35fd494
+
+```
+
+```
