@@ -76,8 +76,9 @@ npm config list
 
 ![TeamCity_Build_Steps_Step_Sonar_QubeAnalysis.jpg](https://yingvickycao.github.io/img/tools/teamcity/TeamCity_Build_Steps_Step_Sonar_QubeAnalysis.jpg)
 
-- Runner Type：SonarQube Runner  
-  Teamcity 如果默认没有 SonarQube Runner， 需要下载。
+## Runner Type：SonarQube Runner
+
+Teamcity 如果默认没有 SonarQube Runner， 需要下载。
 
 ![Teamcity_2020.1.3_install_SonarQube_Analysis_plugin_1](https://yingvickycao.github.io/img/tools/teamcity/Teamcity_2020.1.3_install_SonarQube_Analysis_plugin_1.jpg)
 
@@ -94,6 +95,8 @@ Failed to download plugin from URL https://plugins.jetbrains.com/plugin/download
 下载失败了，手动下载 URL，然后使用“Upload plugin zip” 来安装。
 
 ![Teamcity_2020.1.3_install_SonarQube_Analysis_plugin_6](https://yingvickycao.github.io/img/tools/teamcity/Teamcity_2020.1.3_install_SonarQube_Analysis_plugin_6.jpg)
+
+---
 
 - Project name:  
   `%env.sonarProjectName%`
@@ -153,7 +156,7 @@ src/main/java
 | \*     | any number of characters  |
 | \* \*  | any number of directories |
 
-SonarQube 7.7:
+### SonarQube 7.7:
 
 ```groovy
 -Dsonar.jacoco.reportPaths=app/build/jacoco/jacocoTest.exec,androidLib/build/jacoco/jacocoTest.exec,javaLib/build/jacoco/jacocoTest.exec
@@ -172,7 +175,7 @@ SonarQube 7.7:
 -X
 ```
 
-SonarQube 7.9:
+### SonarQube 7.9:
 
 ```groovy
 -Dsonar.coverage.jacoco.xmlReportPaths=app/build/reports/jacoco/jacocoTestReport/jacocoTestReport.xml,javaLib/build/reports/jacoco/test/jacocoTestReport.xml,androidLib/build/reports/jacoco/jacocoTestReport/jacocoTestReport.xml
@@ -191,7 +194,7 @@ SonarQube 7.9:
 -X
 ```
 
-SonarQube 6.7.7:
+### SonarQube 6.7.7:
 
 ```groovy
 -Dsonar.jacoco.reportPaths=app/build/jacoco/jacocoTest.exec,androidLib/build/jacoco/jacocoTest.exec,javaLib/build/jacoco/jacocoTest.exec
@@ -209,6 +212,8 @@ SonarQube 6.7.7:
 -Dsonar.sourceEncoding=UTF-8
 -X
 ```
+
+---
 
 `-Dsonar.branch.name=%teamcity.build.branch%`:  
 Branch analysis is available as part of `Developer Edition`  
